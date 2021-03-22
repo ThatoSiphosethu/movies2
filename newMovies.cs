@@ -19,7 +19,7 @@ namespace MovieLibrary
         public int MovieID { get; set; }
         public string Title { get; set; }
         public string Genres { get; set; }
-        private static string File = "movies.csv";
+        private static string File1 = "movies.csv";
 
         // generate questions
         public void ReadMovies()
