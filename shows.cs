@@ -5,14 +5,15 @@ using System.Linq;
 
 namespace MovieLibrary
 {
-    public class Series : Shows
+     class Show : Type
     {
-        public static string File2 = "series.csv";
+        public int Season { get; set; }
+        public int Episode { get; set; }
+        public string[] Writers { get; set; }
 
-        public override void Read()
-
+        public override string Display()
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

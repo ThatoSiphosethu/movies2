@@ -7,10 +7,7 @@ namespace MovieLibrary
        
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-            menu.MenuSelection();
-
-           
+             Menu.Choice(); 
         }
     }
 }

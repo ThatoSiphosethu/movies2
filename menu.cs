@@ -1,177 +1,80 @@
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MovieLibrary
+namespace Movies
 {
-    public class Menu
+    class Menu
     {
-        //public static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-        public void Questions(){
-            Console.WriteLine("Make a selection\n");
-            Console.WriteLine("1. View ");
-            Console.WriteLine("2. Add ");
-            Console.WriteLine("3. Exit\n");
- 
-        }
-
-        public void MenuSelection() {
-        int choice = 0;
-        string option;
-
-
-        do
+        public static void Choice()
         {
-            
-            Questions();
-            choice = Int32.Parse(Console.ReadLine());
-            if(choice == 1)
+            Console.WriteLine("1. View\n2. Add\n3. Exit");
+            int option = Option();
 
+            switch (option)
             {
-                int media = 0; 
-
-                Console.WriteLine("Do you want to view 1. Movies, 2. Series, 3. Videos? "); 
-                media = Console.ReadLine();
-
-                if (media == 1)
-                {
-                    //read from movies.csv
-                    StreamReader rs = new StreamReader(File1);
-                    Console.WriteLine("ShowId,ShowTitle,Episode,Writers");
-                    Console.WriteLine("");
-                    while (!rs.EndOfStream)
-                    {
-                        string line = rs.ReadLine();
-                        Console.WriteLine(line);
-                    }
-                    
-                }
-
-                 else if (media == 2)
-                {
-                    //read from shows.csv
-                    StreamReader rs = new StreamReader(File2);
-                    Console.WriteLine("ShowId,ShowTitle,Episode,Writers");
-                    Console.WriteLine("");
-                    while (!rs.EndOfStream)
-                    {
-                        string line = rs.ReadLine();
-                        Console.WriteLine(line);
-                    }
-                }
-
-                 else if (media == 3)
-                {
-                    //read from videos.csv
-                    StreamReader rt = new StreamReader(File3);
-                    Console.WriteLine("VideoId,VideoTitle,Format,Length,Regions");
-                    Console.WriteLine("");
-                    while (!rt.EndOfStream)
-                    {
-                        string line = rt.ReadLine();
-                        Console.WriteLine(line);
-                    }
-                }
-
-                else(MenuSelection)
-
+                case 1: ViewMenu();
+                    break;
+                case 2: AddMenu();
+                    break;
+                case 3: return;
+                    break;
+                default: Console.WriteLine("Try again\n");
+                    Choice();
+                    break;
             }
+        }
 
-            if(choice == 2)
+        public static void ViewMenu()
+        {
+            Console.WriteLine("1. Movie\n2. Video\n3. Show\n4. Back\n5. Exit");
+            int option = Option();
 
+            switch (option)
             {
-                int add = 0; 
-
-                Console.WriteLine("Do you want to add 1. Movies, 2. Series, 3. Videos? "); 
-                add = Console.ReadLine();
-
-                if (add == 1)
-                {
-                    try
-                    {
-                      {
-                          //create streamreader
-                          string File1 = @"movies.csv";
-                          using (StreamReader reader = new StreamReader(File1))
-                          {
-                              string line; 
-
-                              while ((line = reader.ReadLine()) != null)
-                              {
-                                  Console.WriteLine(line);
-                              }
-                          }
-                      }  
-                    }
-                    catch (System.Exception exp)
-                    {
-                         Console.WriteLine(exp.Message);
-                    }//write to  movies.csv
-                    
-                }
-
-                 else if (add == 2)
-                {
-                    //write shows.csv
-                    try
-                    {
-                      {
-                          //create streamreader
-                          string File2 = @"shows.csv";
-                          using (StreamReader reader = new StreamReader(File2))
-                          {
-                              string line; 
-
-                              while ((line = reader.ReadLine()) != null)
-                              {
-                                  Console.WriteLine(line);
-                              }
-                          }
-                      }  
-                    }
-                    catch (System.Exception exp)
-                    {
-                         Console.WriteLine(exp.Message);
-                    }//write to  movies.csv
-                    
-                }
-
-                 else if (add == 3)
-                {
-                    //write videos.csv
-                    try
-                    {
-                      {
-                          //create streamreader
-                          string File3 = @"videos.csv";
-                          using (StreamReader reader = new StreamReader(File3))
-                          {
-                              string line; 
-
-                              while ((line = reader.ReadLine()) != null)
-                              {
-                                  Console.WriteLine(line);
-                              }
-                          }
-                      }  
-                    }
-                    catch (System.Exception exp)
-                    {
-                         Console.WriteLine(exp.Message);
-                    }//write to  movies.csv
-                    
-                }
-
-                else(MenuSelection)
-
+                case 1:
+                   ShowMovies();
+                    break;
+                case 2:
+                   ShowVideos();
+                    break;
+                case 3:
+                    ShowShows;
+                    break;
+                case 4: Back();
+                    break;
+                case 5:  return;
+                    break;
+                default:
+                    Console.WriteLine("Try again\n");
+                    ViewMenu();
+                    break;
             }
-
-            else(break);
-
         }
 
 
+        public static void AddMenu() 
+        {
+        }
 
-
+        public static int Option()
+        {
+            int option;
+            while (true)
+            {
+                try
+                {
+                    option = Int32.Parse(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException exp)
+                {
+                    throw;
+                }
+            }
+            return option;
+        }
     }
-} 
 }
