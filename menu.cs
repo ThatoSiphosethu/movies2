@@ -1,38 +1,34 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace Movies
+namespace MovieLibrary
 {
-    class Menu
+     public class Menu
     {
         public static void Choice()
         {
+           
             Console.WriteLine("1. View\n2. Add\n3. Exit");
-            int option = Option();
+            int optionOne = Option();
 
-            switch (option)
+            switch (optionOne)
             {
                 case 1: ViewMenu();
                     break;
                 case 2: AddMenu();
                     break;
                 case 3: return;
-                    break;
                 default: Console.WriteLine("Try again\n");
                     Choice();
                     break;
             }
-        }
-
+        } 
         public static void ViewMenu()
         {
             Console.WriteLine("1. Movie\n2. Video\n3. Show\n4. Back\n5. Exit");
-            int option = Option();
+            int optionTwo = Option();
 
-            switch (option)
+            switch (optionTwo)
             {
                 case 1:
                    ShowMovies();
@@ -41,24 +37,57 @@ namespace Movies
                    ShowVideos();
                     break;
                 case 3:
-                    ShowShows;
+                    ShowShows();
                     break;
                 case 4: Back();
                     break;
                 case 5:  return;
-                    break;
-                default:
+                   default:
                     Console.WriteLine("Try again\n");
                     ViewMenu();
                     break;
             }
         }
 
-
-        public static void AddMenu() 
-        {
+        public static void ShowMovies(){
+            //var movies = new Movies();
         }
 
+        public static void ShowVideos(){}
+
+        public static void ShowShows(){}
+
+        public static void Back(){}
+        public static void AddMenu() 
+        {
+            Console.WriteLine("Which file are you adding into?");
+            int choice = choice();
+            
+            switch (choice)
+            {
+                
+                case 1:
+                 addMovie.add();
+                    break;
+                case 2:
+                 addShow.add();
+                    break;
+                case 3:
+                 addVideo();
+                    break;
+                case 4:
+                 Back();
+                case 5:
+                 return;
+                 break;
+
+                default:
+                    Console.WriteLine("Exit\n");
+                    ViewMenu();
+                    break;             
+            }
+            
+        }
         public static int Option()
         {
             int option;
@@ -75,6 +104,6 @@ namespace Movies
                 }
             }
             return option;
-        }
+        }       
     }
 }

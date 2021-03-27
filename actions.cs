@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace MovieLibrary
 {
@@ -180,7 +181,7 @@ namespace MovieLibrary
         // Add  new movie
         public void AddVide(Video video)
         {
-            video.Id = vidoesLastID() + 1;
+            video.Id = videosLastID() + 1;
             StreamWriter sw = new StreamWriter(File3, true);
 
             Console.WriteLine("Enter a new Title: ");

@@ -1,4 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MovieLibrary
 {
@@ -7,7 +12,10 @@ namespace MovieLibrary
        
         static void Main(string[] args)
         {
-             Menu.Choice(); 
+           Menu menu = new Menu();
+            Menu.Choice(); 
+
         }
+        
     }
 }
