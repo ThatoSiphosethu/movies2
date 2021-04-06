@@ -1,15 +1,15 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MovieLibrary
 {
-     class Video : Type
+    class Movie : Type
     {
-        public string Format { get; set; }
-        public int Length { get; set; }
-        public int[] Regions { get; set; }
+        public string[] Genres { get; set; }
+       // public int Id { get; set; }
 
         public override string Display()
         {

@@ -72,6 +72,22 @@ namespace MovieLibrary
             sw.Close();
         }
 
+        internal void AddShows()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddVideos()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void AddMovie()
+        {
+            throw new NotImplementedException();
+        }
+
+
         // new showID
         private int getLastID()
         {
@@ -178,8 +194,8 @@ namespace MovieLibrary
             }
         }
 
-        // Add  new movie
-        public void AddVide(Video video)
+        
+        public void AddVideos(Video video)
         {
             video.Id = videosLastID() + 1;
             StreamWriter sw = new StreamWriter(File3, true);

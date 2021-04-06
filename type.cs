@@ -7,9 +7,9 @@ namespace MovieLibrary
         
         public string Title { get; set; }
 
+
         public abstract string Display();   
     }
-
-
+ 
 
 }
